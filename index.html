@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Star Selection</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      table,
+      form {
+        width: 500px;
+        margin: 20px auto;
+      }
+      table {
+        border-collapse: collapse;
+        text-align: center;
+      }
+      table td,
+      table th {
+        border: solid 1px black;
+      }
+      label,
+      input {
+        display: block;
+        margin: 10px 0;
+        font-size: 20px;
+      }
+      button {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>All Star Selection</h1>
+    <form>
+      <div class="input-row">
+        <label for="team name">Team Name</label>
+        <input type="text" name="url" id="url" />
+      </div>
+      <div class="input-row">
+        <label for="player name">Player Name</label>
+        <input type="text" name="website" id="website" />
+      </div>
+      <button>Submit</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Team Name</th>
+          <th>Player Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      const formEl = document.querySelector("form");
+      const tbodyEl = document.querySelector("tbody");
+      const tableEl = document.querySelector("table");
+      function onAddWebsite(e) {
+        e.preventDefault();
+        const website = document.getElementById("website").value;
+        const url = document.getElementById("url").value;
+        tbodyEl.innerHTML += `
+            <tr>
+                <td>${url}</td>
+                <td>${website}</td>
+                <td><button class="deleteBtn">Delete</button></td>
+            </tr>
+        `;
+      }
+
+      function onDeleteRow(e) {
+        if (!e.target.classList.contains("deleteBtn")) {
+          return;
+        }
+
+        const btn = e.target;
+        btn.closest("tr").remove();
+      }
+
+      formEl.addEventListener("submit", onAddWebsite);
+      tableEl.addEventListener("click", onDeleteRow);
+    </script>
+
+
+
+
+
+
+<br>
+
+
+
+<body class="container">
+
+  <h1>Teams</h1>
+
+
+<table class="table">
+  <thead>
+    <tr style="background-color:white;">
+      <th scope="col">#</th>
+      <th scope="col">Team Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background-color:white;">
+      <th scope="row">1</th>
+      <td>Eagles</td>
+      <td>Philadelphia</td>
+      <td>1</td>
+    </tr>
+    <tr style="background-color:white;">
+      <th scope="row">2</th>
+      <td>Niners</td>
+      <td>San Francisco</td>
+      <td>2</td>
+    </tr>
+    <tr style="background-color:white;">
+      <th scope="row">3</th>
+      <td>Bills</td>
+      <td>Buffalo</td>
+      <td>3</td>
+    </tr>
+    
+  </tbody>
+</table>
+<div id="teams"></div>
+  <div class="card">
+      <div class="card-body">
+          <div class="row">
+              <div class="col-sm">
+                  <div class="form-group">
+                      
+                      <input type="text" class="form-control" id="new-team-name">
+                  </div>
+              </div>            
+          </div>
+          
+      </div>
+  </div><br>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+
+  </body>
+</html>
